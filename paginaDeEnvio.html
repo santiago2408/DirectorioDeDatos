@@ -1,0 +1,96 @@
+<html>
+    <link rel="stylesheet", href="estilo1.css">
+    <script src="interactividad.js"></script>
+
+<!--
+   NombreProvedor, Telefono, E-mail, Método de Pago, Alcance Regional (Paises o zonas en las que opera), Sector
+-->
+
+<body>
+    <center>
+    <h1>Define tu rol</h1>
+    <br>
+    <button onclick = "mostrarTablaProveedores()">Proveedores</button>
+    <button onclick = "mostrarTablaClientes()">Clientes</button>
+    <button onclick = "ocultarTablas()">Ocultar Formulario</button>
+    </center>
+
+    <br>
+
+    <center>
+    <table id = "TablaProveedores" class = "DisplayNone">
+        <tr>
+            <td style="width: 200px;">
+                Sector
+
+                <select name="sectorSelect"></select>
+            </td style="width: 200px;">
+
+            <td style="width: 200px;">
+                Nombre Provedor
+            </td>
+
+            <td style="width: 200px;">
+                Telefono
+            </td>
+
+            <td style="width: 200px;">
+                E-Mail
+            </td>
+
+            <td style="width: 200px;">
+                Dirección
+            </td>
+
+            <td style="width: 200px;">
+                Alcance Regional
+                <select name="alcanceRegionalSelect">
+                    
+                </select>
+            </td>
+
+            <td style="width: 200px;">
+                Método de pago
+            </td>
+
+        </tr>
+
+
+
+
+
+
+    </table>
+    </center>
+
+    <center>
+    <table id = "TablaClientes" class = "DisplayNone">
+        <tr>
+            <td style="width: 200px;">
+                Nombre Cliente
+            </td>
+
+            <td style="width: 150px;">
+                Telefono
+            </td>
+
+            <td style="width: 150px;">
+                E-Mail
+            </td>
+
+            <td style="width: 150px;">
+                Dirección
+            </td>
+
+            <td style="width: 150px;">
+                Método Usual de pago
+            </td>
+
+
+        </tr>
+    </table>
+    </center>
+</body>
+
+
+</html>
