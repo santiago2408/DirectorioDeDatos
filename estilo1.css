@@ -8,3 +8,8 @@ table, td{
     display: none;
 }
 
+.small {
+    height: 20px; /* Altura más pequeña para las celdas con la clase "small" */
+  }
+  
+

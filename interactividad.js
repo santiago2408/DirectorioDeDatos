@@ -1,7 +1,3 @@
-function desplegarTablaClientes(){}
-
-function desplegarTablaProvedores(){}
-
 // Define una función para mostrar la tabla
 function mostrarTablaProveedores() {
     // Obtén la tabla
@@ -25,5 +21,39 @@ function ocultarTablas(){
 }
 
 
+// Lista para almacenar nombres seleccionados
+let datosProveedores = [];
+let proveedoresObjeto = {}
 
+function guardarNombre(nombre, tipo) {
+    console.log(tipo.type)
+    if (tipo.type === 'checkbox') {
+        if (tipo.checked) {
+            datosProveedores.push(nombre);
+        }
+    }
+    else{
+        datosProveedores.push(nombre);}
+    
 
+}  
+  
+  // Función para mostrar los nombres seleccionados en la consola
+  function guardarDatosProveedores() {
+    var proveedores = 1
+    while (proveedores in proveedoresObjeto){
+        proveedores += 1
+    } 
+    proveedoresObjeto[proveedores] = datosProveedores
+    datosProveedores = []
+    
+    console.log(JSON.stringify(proveedoresObjeto))
+  }
+
+  function deseleccionarTodo() {
+    let checkboxes = document.querySelectorAll('#tablaProveedores input[type="checkbox"]');
+    
+    checkboxes.forEach(function(checkbox) {
+      checkbox.checked = false;
+    });
+  }

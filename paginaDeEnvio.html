@@ -13,6 +13,7 @@
     <button onclick = "mostrarTablaProveedores()">Proveedores</button>
     <button onclick = "mostrarTablaClientes()">Clientes</button>
     <button onclick = "ocultarTablas()">Ocultar Formulario</button>
+    <button>Enviar Datos</button>
     </center>
 
     <br>
@@ -22,8 +23,6 @@
         <tr>
             <td style="width: 200px;">
                 Sector
-
-                <select name="sectorSelect"></select>
             </td style="width: 200px;">
 
             <td style="width: 200px;">
@@ -44,22 +43,135 @@
 
             <td style="width: 200px;">
                 Alcance Regional
-                <select name="alcanceRegionalSelect">
-                    
-                </select>
             </td>
 
             <td style="width: 200px;">
                 Método de pago
             </td>
-
         </tr>
 
+        <tr>
+            <td>
+                <select name="sectorSelect" onchange="guardarNombre(this.value)">
+                    <option value=""></option>
+                    <option value="Primario">Primario</option>
+                    <option value="Secundario">Secundario</option>
+                    <option value="Serciario">Terciario</option>
+                    <option value="Cuaternario">Cuaternario</option>
+                    <option value="Quinario">Quinario</option>
+                </select>
+            </td>
+            <td>
+                <input
+                   type="text"
+                   size="35"
+                   maxlength="100" 
+                   id = "nombreProveedor"
+                   onchange="guardarNombre(document.getElementById('nombreProveedor').value.trim())"/>
+            </td>
 
+            <td>
+                <input
+                   type="text"
+                   size="25"
+                   maxlength="10"
+                   id="telefono"
+                   onchange="guardarNombre(document.getElementById('telefono').value.trim())"/>
+            </td>
 
+            <td><input
+                type="text"
+                size="25"
+                maxlength="35" 
+                id="e-mail"
+                onchange="guardarNombre(document.getElementById('e-mail').value.trim())"/></td>
+            <td>
+                <input
+                type="text"
+                size="25"
+                maxlength="40" 
+                id="direccion"
+                onchange="guardarNombre(document.getElementById('direccion').value.trim())"/>
+                
+            </td>
 
+            <td>
+                <input type="checkbox" id="amazonas" value="amazonas" onchange="guardarNombre(this.value, this)"/> Amazonas</label>
+                <br>
+                <input type="checkbox" id="antioquia" value="antioquia" onchange="guardarNombre(this.value, this)"/> Antioquia</label>
+                <br>
+                <input type="checkbox" id="arauca" value="arauca" onchange="guardarNombre(this.value, this )"/> Arauca</label>
+                <br>
+                <input type="checkbox" id="atlantico" value="atlantico" onchange="guardarNombre(this.value, this)"/> Atlántico</label>
+                <br>
+                <input type="checkbox" id="bolivar" value="bolivar" onchange="guardarNombre(this.value, this)"/> Bolívar</label>
+                <br>
+                <input type="checkbox" id="boyaca" value="boyaca" onchange="guardarNombre(this.value, this)"/> Boyacá</label>
+                <br>
+                <input type="checkbox" id="caldas" value="caldas" onchange="guardarNombre(this.value, this)"/> Caldas</label>
+                <br>
+                <input type="checkbox" id="caqueta" value="caqueta" onchange="guardarNombre(this.value, this)"/> Caquetá</label>
+                <br>
+                <input type="checkbox" id="casanare" value="casanare" onchange="guardarNombre(this.value, this)"/> Casanare</label>
+                <br>
+                <input type="checkbox" id="cauca" value="cauca" onchange="guardarNombre(this.value, this)"/> Cauca</label>
+                <br>
+                <input type="checkbox" id="cesar" value="cesar" onchange="guardarNombre(this.value, this)"/> Cesar</label>
+                <br>
+                <input type="checkbox" id="choco" value="choco" onchange="guardarNombre(this.value, this)"/> Chocó</label>
+                <br>
+                <input type="checkbox" id="cordoba" value="cordoba" onchange="guardarNombre(this.value, this)"/> Córdoba</label>
+                <br>
+                <input type="checkbox" id="cundinamarca" value="cundinamarca" onchange="guardarNombre(this.value, this)"/> Cundinamarca</label>
+                <br>
+                <input type="checkbox" id="guainia" value="guainia" onchange="guardarNombre(this.value, this)"/> Guainía</label>
+                <br>
+                <input type="checkbox" id="guaviare" value="guaviare" onchange="guardarNombre(this.value, this)"/> Guaviare</label>
+                <br>
+                <input type="checkbox" id="huila" value="huila" onchange="guardarNombre(this.value, this)"/> Huila</label>
+                <br>
+                <input type="checkbox" id="la_guajira" value="la_guajira" onchange="guardarNombre(this.value, this)"/> La Guajira</label>
+                <br>
+                <input type="checkbox" id="magdalena" value="magdalena" onchange="guardarNombre(this.value, this)"/> Magdalena</label>
+                <br>
+                <input type="checkbox" id="meta" value="meta" onchange="guardarNombre(this.value, this)"/> Meta</label>
+                <br>
+                <input type="checkbox" id="narino" value="narino" onchange="guardarNombre(this.value, this)"/> Nariño</label>
+                <br>
+                <input type="checkbox" id="norte_de_santander" value="norte_de_santander" onchange="guardarNombre(this.value, this)"/> Norte de Santander</label>
+                <br>
+                <input type="checkbox" id="putumayo" value="putumayo" onchange="guardarNombre(this.value, this)"/> Putumayo</label>
+                <br>
+                <input type="checkbox" id="quindio" value="quindio" onchange="guardarNombre(this.value, this)"/> Quindío</label>
+                <br>
+                <input type="checkbox" id="risaralda" value="risaralda" onchange="guardarNombre(this.value, this)"/> Risaralda</label>
+                <br>
+                <input type="checkbox" id="san_andres" value="san_andres" onchange="guardarNombre(this.value, this)"/> San Andrés y Providencia</label>
+                <br>
+                <input type="checkbox" id="santander" value="santander" onchange="guardarNombre(this.value, this)"/> Santander</label>
+                <br>
+                <input type="checkbox" id="sucre" value="sucre" onchange="guardarNombre(this.value, this)"/> Sucre</label>
+                <br>
+                <input type="checkbox" id="tolima" value="tolima" onchange="guardarNombre(this.value, this)"/> Tolima</label>
+                <br>
+                <input type="checkbox" id="valle_del_cauca" value="valle_del_cauca" onchange="guardarNombre(this.value, this)"/> Valle del Cauca</label>
+                <br>
+                <input type="checkbox" id="vaupes" value="vaupes" onchange="guardarNombre(this.value, this)"/> Vaupés</label>
+                <br>
+                <input type="checkbox" id="vichada" value="vichada" onchange="guardarNombre(this.value, this)"/> Vichada</label>
 
+            </td>
+            <td>
+                <select name="metodoPagoSelect" onchange="guardarNombre(this.value)">
 
+                    <option value="" > </option>
+                    <option value="Debito">Debito</option>
+                    <option value="Credito">Credito</option>
+                    
+                </select>
+            </td>
+
+        </tr>
     </table>
     </center>
 
@@ -85,12 +197,36 @@
             <td style="width: 150px;">
                 Método Usual de pago
             </td>
+        </tr>
 
-
+        <tr>
+            <td><input
+                type="text"
+                size="25"
+                maxlength="40" /></td>
+            <td><input
+                type="text"
+                size="25"
+                maxlength="40" /></td>
+            <td><input
+                type="text"
+                size="25"
+                maxlength="40" /></td>
+            <td><input
+                type="text"
+                size="25"
+                maxlength="40" /></td>
+            <td><input
+                type="text"
+                size="25"
+                maxlength="40" /></td>
         </tr>
     </table>
     </center>
+
+
 </body>
 
-
+    <button onclick="guardarDatosProveedores()">Guardar Datos de Proveedores</button>
+    <button onclick="deseleccionarTodo()">Deseleccionar Todo</button>
 </html>
