@@ -1,6 +1,6 @@
 <html>
     <link rel="stylesheet", href="estilo1.css">
-    <script src="interactividad.js"></script>
+
 
 <!--
    NombreProvedor, Telefono, E-mail, Método de Pago, Alcance Regional (Paises o zonas en las que opera), Sector
@@ -13,13 +13,13 @@
     <button onclick = "mostrarTablaProveedores()">Proveedores</button>
     <button onclick = "mostrarTablaClientes()">Clientes</button>
     <button onclick = "ocultarTablas()">Ocultar Formulario</button>
-    <button>Enviar Datos</button>
+    <button id="enviarDatos">Enviar Datos</button>
     </center>
 
     <br>
 
     <center>
-    <table id = "TablaProveedores" class = "DisplayNone">
+    <table id = "tablaProveedores" class = "DisplayNone">
         <tr>
             <td style="width: 200px;">
                 Sector
@@ -52,7 +52,7 @@
 
         <tr>
             <td>
-                <select name="sectorSelect" onchange="guardarNombre(this.value)">
+                <select name="sectorSelect" onchange="guardarNombre(this.value, this)">
                     <option value=""></option>
                     <option value="Primario">Primario</option>
                     <option value="Secundario">Secundario</option>
@@ -67,7 +67,7 @@
                    size="35"
                    maxlength="100" 
                    id = "nombreProveedor"
-                   onchange="guardarNombre(document.getElementById('nombreProveedor').value.trim())"/>
+                   onchange="guardarNombre(document.getElementById('nombreProveedor').value.trim(), this)"/>
             </td>
 
             <td>
@@ -76,7 +76,7 @@
                    size="25"
                    maxlength="10"
                    id="telefono"
-                   onchange="guardarNombre(document.getElementById('telefono').value.trim())"/>
+                   onchange="guardarNombre(document.getElementById('telefono').value.trim(), this)"/>
             </td>
 
             <td><input
@@ -84,14 +84,14 @@
                 size="25"
                 maxlength="35" 
                 id="e-mail"
-                onchange="guardarNombre(document.getElementById('e-mail').value.trim())"/></td>
+                onchange="guardarNombre(document.getElementById('e-mail').value.trim(), this)"/></td>
             <td>
                 <input
                 type="text"
                 size="25"
                 maxlength="40" 
                 id="direccion"
-                onchange="guardarNombre(document.getElementById('direccion').value.trim())"/>
+                onchange="guardarNombre(document.getElementById('direccion').value.trim(), this)"/>
                 
             </td>
 
@@ -100,7 +100,7 @@
                 <br>
                 <input type="checkbox" id="antioquia" value="antioquia" onchange="guardarNombre(this.value, this)"/> Antioquia</label>
                 <br>
-                <input type="checkbox" id="arauca" value="arauca" onchange="guardarNombre(this.value, this )"/> Arauca</label>
+                <input type="checkbox" id="arauca" value="arauca" onchange="guardarNombre(this.value, this)"/> Arauca</label>
                 <br>
                 <input type="checkbox" id="atlantico" value="atlantico" onchange="guardarNombre(this.value, this)"/> Atlántico</label>
                 <br>
@@ -162,7 +162,7 @@
 
             </td>
             <td>
-                <select name="metodoPagoSelect" onchange="guardarNombre(this.value)">
+                <select name="metodoPagoSelect" onchange="guardarNombre(this.value, this)">
 
                     <option value="" > </option>
                     <option value="Debito">Debito</option>
@@ -176,7 +176,7 @@
     </center>
 
     <center>
-    <table id = "TablaClientes" class = "DisplayNone">
+    <table id = "tablaClientes" class = "DisplayNone">
         <tr>
             <td style="width: 200px;">
                 Nombre Cliente
@@ -203,30 +203,47 @@
             <td><input
                 type="text"
                 size="25"
-                maxlength="40" /></td>
+                maxlength="40"
+                id="nombreCliente" 
+                onchange="guardarNombreClientes(document.getElementById('nombreCliente').value.trim(), this)"/></td>
             <td><input
                 type="text"
                 size="25"
-                maxlength="40" /></td>
+                maxlength="40" 
+                id="telefonoClientes"
+                onchange="guardarNombreClientes(document.getElementById('telefonoClientes').value.trim(), this)"/></td>
             <td><input
                 type="text"
                 size="25"
-                maxlength="40" /></td>
+                maxlength="40"
+                id="e-mailClientes" 
+                onchange="guardarNombreClientes(document.getElementById('e-mailClientes').value.trim(), this)"/></td>
             <td><input
                 type="text"
                 size="25"
-                maxlength="40" /></td>
-            <td><input
-                type="text"
-                size="25"
-                maxlength="40" /></td>
+                maxlength="40"
+                id="direccionClientes"
+                onchange="guardarNombreClientes(document.getElementById('direccionClientes').value.trim(), this)" /></td>
+            
+            <td><select name="metodoPagoClientes" onclick="guardarNombreClientes(this.value, this)">
+                <option value=""></option>
+                <option value="Debito">Debito</option>
+                <option value="Credito">Credito</option>
+
+                </select></td>
         </tr>
     </table>
     </center>
-
+    
+    <center>
+        <button onclick="guardarDatosProveedores()">Guardar Datos de Proveedores</button>
+        <button onclick="deseleccionarTodo()">Deseleccionar Todo</button>
+        <button onclick="guardarDatosClientes()">Guardar Datos de Clientes</button>
+        </center>
+    
+    <script src="interactividad.js"></script>
 
 </body>
 
-    <button onclick="guardarDatosProveedores()">Guardar Datos de Proveedores</button>
-    <button onclick="deseleccionarTodo()">Deseleccionar Todo</button>
+    
 </html>

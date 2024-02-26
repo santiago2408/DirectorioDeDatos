@@ -1,23 +1,23 @@
 // Define una función para mostrar la tabla
 function mostrarTablaProveedores() {
     // Obtén la tabla
-    var TablaProveedores = document.getElementById("TablaProveedores");
+    var tablaProveedores = document.getElementById("tablaProveedores");
     // Cambia su estilo de visualización para mostrarla
-    TablaProveedores.style.display = "table";
-    TablaClientes.style.display = "none"
+    tablaProveedores.style.display = "table";
+    tablaClientes.style.display = "none"
 }
 
 function mostrarTablaClientes() {
     // Obtén la tabla
-    var TablaClientes = document.getElementById("TablaClientes");
+    var tablaClientes = document.getElementById("tablaClientes");
     // Cambia su estilo de visualización para mostrarla
-    TablaClientes.style.display = "table";
-    TablaProveedores.style.display = "none"
+    tablaClientes.style.display = "table";
+    tablaProveedores.style.display = "none"
 }
 
 function ocultarTablas(){
-    TablaClientes.style.display = "None"
-    TablaProveedores.style.display = "None"
+    tablaClientes.style.display = "None"
+    tablaProveedores.style.display = "None"
 }
 
 
@@ -34,8 +34,6 @@ function guardarNombre(nombre, tipo) {
     }
     else{
         datosProveedores.push(nombre);}
-    
-
 }  
   
   // Función para mostrar los nombres seleccionados en la consola
@@ -57,3 +55,57 @@ function guardarNombre(nombre, tipo) {
       checkbox.checked = false;
     });
   }
+
+
+let datosClientes = [];
+let clientesObjeto = {}
+
+function guardarNombreClientes(nombre, tipo) {
+    console.log(tipo.type)
+
+        datosClientes.push(nombre);
+    
+    console.log(datosClientes)
+    
+}  
+  
+  // Función para mostrar los nombres seleccionados en la consola
+function guardarDatosClientes() {
+  var clientes = 1
+  while (clientes in clientesObjeto){
+      clientes += 1
+  } 
+  clientesObjeto[clientes] = datosClientes
+  datosClientes = []
+  
+  console.log(JSON.stringify(clientesObjeto))
+}
+
+
+
+function enviarDatosAPagina2() {
+  // Convertir los diccionarios a cadenas JSON para pasarlos por la URL
+  var datos1 = encodeURIComponent(JSON.stringify(proveedoresObjeto));
+  var datos2 = encodeURIComponent(JSON.stringify(clientesObjeto));
+
+  // Redirigir a la página 2 incluyendo los datos en la URL
+  window.location.href = 'paginaDeLlegada.html?datos1=' + datos1 + '&datos2=' + datos2;
+}
+
+document.addEventListener('click', function(event) {
+  if (event.target && event.target.id === 'enviarDatos') {
+      enviarDatosAPagina2();
+  }
+});
+
+
+
+
+
+
+
+
+
+
+
+

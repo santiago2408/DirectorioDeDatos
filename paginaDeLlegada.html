@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página de Llegada</title>
+</head>
+<body>
+    <h1>Lista de Datos 1</h1>
+    <ul id="datos1List"></ul>
+
+    <h1>Lista de Datos 2</h1>
+    <ul id="datos2List"></ul>
+
+    <script>
+        // Función para obtener los parámetros de la URL
+        function getParams(url) {
+            const params = {};
+            const searchParams = new URLSearchParams(url.split('?')[1]);
+            for (const [key, value] of searchParams) {
+                params[key] = value;
+            }
+            return params;
+        }
+
+        // Obtener los datos de la URL
+        const urlParams = getParams(window.location.href);
+        const datos1 = JSON.parse(urlParams.datos1 || '[]');
+        const datos2 = JSON.parse(urlParams.datos2 || '[]');
+
+        // Mostrar los datos en listas en el HTML
+        const datos1List = document.getElementById('datos1List');
+        const datos2List = document.getElementById('datos2List');
+
+        datos1.forEach(dato => {
+            const listItem = document.createElement('li');
+            listItem.textContent = dato;
+            datos1List.appendChild(listItem);
+        });
+
+        datos2.forEach(dato => {
+            const listItem = document.createElement('li');
+            listItem.textContent = dato;
+            datos2List.appendChild(listItem);
+        });
+    </script>
+</body>
+</html>
+
