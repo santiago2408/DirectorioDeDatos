@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página 1</title>
+</head>
+<body>
+    <h1>Página 1</h1>
+    
+    <button onclick="cargarDiccionario()">Cargar Diccionario</button>
+    <button onclick="enviarDiccionario()">Enviar Diccionario</button>
+
+    <script>
+        let diccionario = {};
+
+        function cargarDiccionario() {
+            // Aquí cargarías el diccionario, por ejemplo:
+            diccionario = {
+                "clave1": "valor1",
+                "clave2": "valor2",
+                // Agrega más elementos según sea necesario
+            };
+            alert("Diccionario cargado correctamente.");
+        }
+
+        function enviarDiccionario() {
+            // Aquí envías el diccionario a otra página web
+            // Puedes usar localStorage para enviar datos entre páginas
+            localStorage.setItem('diccionario', JSON.stringify(diccionario));
+            window.location.href = 'pagina2.html'; // Redirige a la otra página
+        }
+    </script>
+</body>
+</html>
