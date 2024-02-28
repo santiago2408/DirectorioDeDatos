@@ -88,24 +88,12 @@ function guardarDatosClientes() {
 function enviarDiccionario() {
   // Aquí envías el diccionario a otra página web
   // Puedes usar localStorage para enviar datos entre páginas
+  localStorage.setItem('clientesObjeto', JSON.stringify(clientesObjeto));
   localStorage.setItem('proveedoresObjeto', JSON.stringify(proveedoresObjeto));
+
   window.location.href = 'paginaDeLlegada.html'; // Redirige a la otra página
 }
-/**
-function enviarDatosAPagina2() {
-  // Convertir los diccionarios a cadenas JSON para pasarlos por la URL
-  var datos1 = encodeURIComponent(JSON.stringify(proveedoresObjeto));
-  var datos2 = encodeURIComponent(JSON.stringify(clientesObjeto));
 
-  // Redirigir a la página 2 incluyendo los datos en la URL
-  window.location.href = `paginaDeLllegada.html?array1=${datos1}&array2=${datos2}`;
-}
-document.addEventListener('click', function(event) {
-  if (event.target && event.target.id === 'enviarDatos') {
-      enviarDatosAPagina2();
-  }
-});
-**/
 
 
 

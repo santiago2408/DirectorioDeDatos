@@ -229,7 +229,7 @@
                 id="direccionClientes"
                 onchange="guardarNombreClientes(document.getElementById('direccionClientes').value.trim(), this)" /></td>
             
-            <td><select name="metodoPagoClientes" onclick="guardarNombreClientes(this.value, this)">
+            <td><select name="metodoPagoClientes" onchange="guardarNombreClientes(this.value, this)">
                 <option value=""></option>
                 <option value="Debito">Debito</option>
                 <option value="Credito">Credito</option>
