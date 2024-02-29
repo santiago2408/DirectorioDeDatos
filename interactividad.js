@@ -1,16 +1,16 @@
-// Define una función para mostrar la tabla
+
 function mostrarTablaProveedores() {
-    // Obtén la tabla
+
     var tablaProveedores = document.getElementById("tablaProveedores");
-    // Cambia su estilo de visualización para mostrarla
+
     tablaProveedores.style.display = "table";
     tablaClientes.style.display = "none"
 }
 
 function mostrarTablaClientes() {
-    // Obtén la tabla
+
     var tablaClientes = document.getElementById("tablaClientes");
-    // Cambia su estilo de visualización para mostrarla
+
     tablaClientes.style.display = "table";
     tablaProveedores.style.display = "none"
 }
@@ -21,12 +21,12 @@ function ocultarTablas(){
 }
 
 
-// Lista para almacenar nombres seleccionados
+
 let datosProveedores = [];
 let proveedoresObjeto = {}
 
 function guardarNombre(nombre, tipo) {
-    console.log(tipo.type)
+    //console.log(tipo.type)
     if (tipo.type === 'checkbox') {
         if (tipo.checked) {
             datosProveedores.push(nombre);
@@ -36,26 +36,17 @@ function guardarNombre(nombre, tipo) {
         datosProveedores.push(nombre);}
 }  
   
-  // Función para mostrar los nombres seleccionados en la consola
-  function guardarDatosProveedores() {
-    var proveedores = 1
-    while (proveedores in proveedoresObjeto){
-        proveedores += 1
-    } 
-    proveedoresObjeto[proveedores] = datosProveedores
-    datosProveedores = []
-    
-    console.log(JSON.stringify(proveedoresObjeto))
-  }
 
-  function deseleccionarTodo() {
-    let checkboxes = document.querySelectorAll('#tablaProveedores input[type="checkbox"]');
+function guardarDatosProveedores() {
+  var proveedores = 1
+  while (proveedores in proveedoresObjeto){
+      proveedores += 1
+  } 
+  proveedoresObjeto[proveedores] = datosProveedores
+  datosProveedores = []
     
-    checkboxes.forEach(function(checkbox) {
-      checkbox.checked = false;
-    });
-  }
-
+  console.log(JSON.stringify(proveedoresObjeto))
+}
 
 let datosClientes = [];
 let clientesObjeto = {}
@@ -65,10 +56,9 @@ function guardarNombreClientes(nombre, tipo) {
 
         datosClientes.push(nombre);
     
-    console.log(datosClientes)
+    //console.log(datosClientes)
     
 }  
-
 
 
   // Función para mostrar los nombres seleccionados en la consola
@@ -80,10 +70,16 @@ function guardarDatosClientes() {
   clientesObjeto[clientes] = datosClientes
   datosClientes = []
   
-  console.log(JSON.stringify(clientesObjeto))
+  //console.log(JSON.stringify(clientesObjeto))
 }
 
-
+function deseleccionarTodo() {
+  let checkboxes = document.querySelectorAll('#tablaProveedores input[type="checkbox"]');
+    
+  checkboxes.forEach(function(checkbox) {
+    checkbox.checked = false;
+  });
+}
 
 function enviarDiccionario() {
   // Aquí envías el diccionario a otra página web
@@ -93,15 +89,3 @@ function enviarDiccionario() {
 
   window.location.href = 'paginaDeLlegada.html'; // Redirige a la otra página
 }
-
-
-
-
-
-
-
-
-
-
-
-

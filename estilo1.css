@@ -11,5 +11,23 @@ table, td{
 .small {
     height: 20px; /* Altura más pequeña para las celdas con la clase "small" */
   }
+
   
 
+td:hover {
+    background-color: #87f5e4;
+}
+
+body {
+    /* Usando un gradiente lineal */
+    background: linear-gradient(to right, #ff8a00, #e52e71, #00bfff);
+  }
+
+  
+.colorColumna {
+    background-color: #e52e71;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+  }

@@ -2,8 +2,8 @@
     <link rel="stylesheet", href="estilo1.css">
     <head>
         <meta charset="UTF-8" >
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Página 1</title>
+
+        <title>Recoleccion de Datos</title>
     </head>
 
 <!--
@@ -17,20 +17,20 @@
     <button onclick = "mostrarTablaProveedores()">Proveedores</button>
     <button onclick = "mostrarTablaClientes()">Clientes</button>
     <button onclick = "ocultarTablas()">Ocultar Formulario</button>
-    <button onclick = "enviarDiccionario()">Enviar Datos</button>
+    <button onclick = "deseleccionarTodo()">Deseleccionar Todo</button>
     </center>
 
     <br>
 
     <center>
     <table id = "tablaProveedores" class = "DisplayNone">
-        <tr>
+        <tr class="colorColumna">
             <td style="width: 200px;">
                 Sector
             </td style="width: 200px;">
 
             <td style="width: 200px;">
-                Nombre Provedor
+                Nombre Proveedor
             </td>
 
             <td style="width: 200px;">
@@ -181,7 +181,7 @@
 
     <center>
     <table id = "tablaClientes" class = "DisplayNone">
-        <tr>
+        <tr class="colorColumna">
             <td style="width: 200px;">
                 Nombre Cliente
             </td>
@@ -237,12 +237,13 @@
                 </select></td>
         </tr>
     </table>
+    <br>
     </center>
     
     <center>
-        <button onclick="guardarDatosProveedores()">Guardar Datos de Proveedores</button>
-        <button onclick="deseleccionarTodo()">Deseleccionar Todo</button>
-        <button onclick="guardarDatosClientes()">Guardar Datos de Clientes</button>
+        <button onclick = "guardarDatosProveedores()">Guardar Datos de Proveedores</button>
+        <button onclick = "guardarDatosClientes()">Guardar Datos de Clientes</button>
+        <button onclick = "enviarDiccionario()">Enviar Datos</button>
         </center>
     
     <script src="interactividad.js"></script>
